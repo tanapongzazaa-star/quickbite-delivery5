@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เมนูอาหาร</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+</style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🍔 Food Delivery</a>
+
+    <!-- ปุ่มมือถือ -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- เมนู -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html" id="nav-home">🏠 หน้าหลัก</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="menu.html" id="nav-menu">🍔 เมนู</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="cart.html" id="nav-cart">
+            🛒 ตะกร้า
+            <span id="cart-count"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              0
+            </span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container mt-4 text-center">
+    <h1>🍔 เมนูอาหาร</h1>
+</div>
+
+<!-- ⭐ เมนูขายดี -->
+<div class="container mt-5">
+    <h3 class="mb-4">🔥 เมนูขายดี</h3>
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow position-relative">
+
+                <span class="badge bg-danger position-absolute top-0 start-0 m-2">ขายดี</span>
+
+                <img src="https://s359.kapook.com/pagebuilder/3074583c-1c05-447b-a6d6-c2bf63dbf133.jpg" class="card-img-top">
+
+                <div class="card-body text-center">
+                    <h5>โจ๊กหมูทรงเครื่อง</h5>
+                    <p>40 บาท</p>
+                    <button class="btn btn-success"
+                    onclick="addToCart('โจ๊กหมูทรงเครื่อง',40,'https://s359.kapook.com/pagebuilder/3074583c-1c05-447b-a6d6-c2bf63dbf133.jpg')">
+                    สั่งอาหาร</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 🍽️ เมนูอื่น -->
+<div class="container mt-5">
+    <h3 class="mb-4">🍜 เมนูอื่นๆ</h3>
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <img src="https://www.unileverfoodsolutions.co.th/dam/global-ufs/mcos/grit/italy/calcmenu/recipes/IT-recipes/%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%A7%E0%B8%95%E0%B9%89%E0%B8%A1%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B9%80%E0%B8%AB%E0%B9%87%E0%B8%94%E0%B8%AB%E0%B8%AD%E0%B8%A1/LINE-ALBUM--header.jpg" class="card-img-top">
+                <div class="card-body text-center">
+                    <h5>โจ๊กหมูเห็ดหอม</h5>
+                    <p>60 บาท</p>
+                    <button class="btn btn-success"
+                    onclick="addToCart('โจ๊กหมูเห็ดหอม',60,'https://www.unileverfoodsolutions.co.th/dam/global-ufs/mcos/grit/italy/calcmenu/recipes/IT-recipes/%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%A7%E0%B8%95%E0%B9%89%E0%B8%A1%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B9%80%E0%B8%AB%E0%B9%87%E0%B8%94%E0%B8%AB%E0%B8%AD%E0%B8%A1/LINE-ALBUM--header.jpg')">
+                    สั่งอาหาร</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <img src="https://www.ajinomoto.co.th/storage/photos/shares/our-story/Contibutor/Kaotommoo/Body/62cabf4b5e1f5.jpg" class="card-img-top">
+                <div class="card-body text-center">
+                    <h5>โจ๊กหมูกรอบ</h5>
+                    <p>50 บาท</p>
+                    <button class="btn btn-success"
+                    onclick="addToCart('โจ๊กหมูกรอบ',50,'https://www.ajinomoto.co.th/storage/photos/shares/our-story/Contibutor/Kaotommoo/Body/62cabf4b5e1f5.jpg')">
+                    สั่งอาหาร</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <img src="https://food.mthai.com/app/uploads/2018/10/Fish-Porridge.jpg" class="card-img-top">
+                <div class="card-body text-center">
+                    <h5>โจ๊กปลา</h5>
+                    <p>60 บาท</p>
+                    <button class="btn btn-success"
+                    onclick="addToCart('โจ๊กปลา',60,'https://food.mthai.com/app/uploads/2018/10/Fish-Porridge.jpg')">
+                    สั่งอาหาร</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ปุ่มไปตะกร้า -->
+<div class="text-center mt-5">
+    <a href="cart.html" class="btn btn-primary">ไปตะกร้า 🛒</a>
+</div>
+
+<script>
+function addToCart(name, price, image){
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+cart.push({name, price, image});
+localStorage.setItem("cart", JSON.stringify(cart));
+alert("เพิ่มสินค้าแล้ว!");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ตะกร้า</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🍔 Food Delivery</a>
+
+    <!-- ปุ่มมือถือ -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- เมนู -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html" id="nav-home">🏠 หน้าหลัก</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="menu.html" id="nav-menu">🍔 เมนู</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="cart.html" id="nav-cart">
+            🛒 ตะกร้า
+            <span id="cart-count"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              0
+            </span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container mt-5">
+<h1>🛒 ตะกร้าสินค้า</h1>
+
+<div class="row" id="cartItems"></div>
+
+<h3 class="mt-4">รวมทั้งหมด: <span id="total">0</span> บาท</h3>
+
+<!-- ปุ่ม -->
+<button class="btn btn-success mt-3" onclick="checkout()">💳 คิดเงิน</button>
+<button class="btn btn-danger mt-3" onclick="clearCart()">🗑 ล้างตะกร้า</button>
+<a href="menu.html" class="btn btn-secondary mt-3">⬅ กลับเมนู</a>
+
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let container = document.getElementById("cartItems");
+let total = 0;
+
+function render(){
+    container.innerHTML = "";
+    total = 0;
+
+    cart.forEach((item, index)=>{
+        total += item.price;
+
+        container.innerHTML += `
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="${item.image}" class="card-img-top" style="height:150px; object-fit:cover;">
+                <div class="card-body text-center">
+                    <p>${item.name}</p>
+                    <p>${item.price} บาท</p>
+                    <button class="btn btn-danger btn-sm" onclick="removeItem(${index})">ลบ</button>
+                </div>
+            </div>
+        </div>
+        `;
+    });
+
+    document.getElementById("total").innerText = total;
+}
+
+function removeItem(index){
+    cart.splice(index,1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    render();
+}
+
+function clearCart(){
+    localStorage.removeItem("cart");
+    cart = [];
+    render();
+}
+
+function checkout(){
+    if(cart.length === 0){
+        alert("ไม่มีสินค้าในตะกร้า");
+        return;
+    }
+
+    alert("สั่งซื้อสำเร็จ! รวม " + total + " บาท 🎉");
+
+    localStorage.removeItem("cart");
+    cart = [];
+    render();
+}
+
+render();
+</script>
+
+</body>
+</html>
